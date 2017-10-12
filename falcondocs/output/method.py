@@ -8,7 +8,7 @@ import markdown2
 logger = logging.getLogger(__name__)
 
 MD = markdown2.Markdown()
-convert = lambda o: inspect.getdoc(o) or u''
+convert = lambda o: inspect.getdoc(o).replace('\r', '<br>') or u''
 
 
 def method_to_body(method_name, method):
