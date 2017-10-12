@@ -31,5 +31,4 @@ class TestWorks(testing.TestCase):
     def test_docs(self):
         resp = self.simulate_get(u'/docs')
         self.assertEqual(resp.status_code, 200)
-        print(resp.content)
         self.assertTrue(b'<ul>' in resp.content)

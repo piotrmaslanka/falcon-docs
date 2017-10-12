@@ -29,10 +29,10 @@ class FalconDocumentationResource(object):
 
     def register(self, base_url='/docs'):
         self.api.add_route(base_url, self)
-        self.api.add_sink(self)
+        self.api.add_sink(self, prefix=base_url)
 
     def on_get(self, req, resp):
-        out = process(self.api._router.resources)
+        out = process(self.api._router.resources, self)
         resp.content_type = 'text/html; charset=utf-8'
         resp.status = falcon.HTTP_200
         resp.data = wrap(out)
