@@ -8,9 +8,12 @@ import markdown2
 logger = logging.getLogger(__name__)
 
 MD = markdown2.Markdown(extras=[
-    'cuddled-lists', ''
+    'cuddled-lists', 'break-on-newline'
 ])
-convert = lambda o: inspect.getdoc(o) or u''
+
+def convert(o):
+    print(repr(inspect.getdoc(o)))
+    return MD.convert(inspect.getdoc(o) or u'')
 
 
 def method_to_body(method_name, method):
