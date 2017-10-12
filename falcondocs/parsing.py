@@ -23,7 +23,8 @@ class ResourceCollection(object):
             yield Resource(res, self.main_name[id(res)],
                            self.resources[id(res)],
                            self.get_extra_names(res),
-                           id(res))
+                           id(res),
+                           self.method_maps[id(res)])
 
     def add(self, url, resource, method_map):
         p = id(resource)
