@@ -12,7 +12,6 @@ MD = markdown2.Markdown(extras=[
 ])
 
 def convert(o):
-    print(repr(inspect.getdoc(o)))
     return MD.convert(inspect.getdoc(o) or u'')
 
 
