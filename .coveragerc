@@ -1,0 +1,6 @@
+[run]
+branch=1
+include=
+    falcondocs/*
+omit=
+    tests/*
