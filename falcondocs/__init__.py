@@ -7,4 +7,3 @@ from .docs import FalconDocumentationResource, FalconDocumentationRouter
 __all__ = [
     'FalconDocumentationResource', 'FalconDocumentationRouter'
 ]
-

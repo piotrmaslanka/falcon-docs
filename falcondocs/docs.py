@@ -11,7 +11,6 @@ from .parsing import ResourceCollection
 logger = logging.getLogger(__name__)
 
 
-
 class FalconDocumentationRouter(falcon.routing.DefaultRouter):
     def __init__(self):
         super(FalconDocumentationRouter, self).__init__()
@@ -19,7 +18,9 @@ class FalconDocumentationRouter(falcon.routing.DefaultRouter):
 
     def add_route(self, uri_template, method_map, resource, *args, **kwargs):
         self.resources.add(uri_template, resource, method_map)
-        super(FalconDocumentationRouter, self).add_route(uri_template, method_map, resource, *args, **kwargs)
+        super(FalconDocumentationRouter, self).add_route(uri_template,
+                                                         method_map, resource,
+                                                         *args, **kwargs)
 
 
 class FalconDocumentationResource(object):
@@ -35,4 +36,3 @@ class FalconDocumentationResource(object):
         resp.content_type = 'text/html; charset=utf-8'
         resp.status = falcon.HTTP_200
         resp.data = wrap(out)
-

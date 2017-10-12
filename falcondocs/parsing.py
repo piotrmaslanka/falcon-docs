@@ -6,9 +6,9 @@ import collections
 
 logger = logging.getLogger(__name__)
 
-
 Resource = collections.namedtuple('Resource', ('resource', 'main_name', 'urls',
-                                               'extra_urls', 'id', 'method_map'))
+                                               'extra_urls', 'id',
+                                               'method_map'))
 
 
 class ResourceCollection(object):
@@ -40,4 +40,3 @@ class ResourceCollection(object):
 
     def get_extra_names(self, res):
         return self.resources[id(res)][1:]
-
